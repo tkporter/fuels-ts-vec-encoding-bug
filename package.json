@@ -1,0 +1,19 @@
+{
+  "name": "fuels-ts-vec-u8-bug",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "fuels": "^0.38.0"
+  },
+  "devDependencies": {
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "generate-types": "yarn exec -- fuels typegen -i ./contract/out/debug/contract-abi.json -o ./types",
+    "local-node": "fuel-core run --chain local_testnet --db-type in-memory --dev-keys",
+    "test": "ts-node ./src/test.ts",
+    "build": "cd ./contract && forc build && cd .. && yarn generate-types"
+  }
+}
