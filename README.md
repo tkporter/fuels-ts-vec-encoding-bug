@@ -38,35 +38,6 @@ However when `u32_and_vec_params` is called, the values returned are not what's 
 
 ## Running this
 
-I'm running with a fresh `fuelup update`, giving these versions:
-
-```
-$ fuelup show
-Default host: aarch64-apple-darwin
-fuelup home: /Users/trevor/.fuelup
-
-installed toolchains
---------------------
-latest-aarch64-apple-darwin (default)
-hyperlane
-
-active toolchain
------------------
-latest-aarch64-apple-darwin (default)
-  forc : 0.35.5
-    - forc-client
-      - forc-deploy : 0.35.5
-      - forc-run : 0.35.5
-    - forc-doc : 0.35.5
-    - forc-explore : 0.28.1
-    - forc-fmt : 0.35.5
-    - forc-index : 0.6.1
-    - forc-lsp : 0.35.5
-    - forc-wallet : 0.2.1
-  fuel-core : 0.17.3
-  fuel-indexer : 0.6.1
-```
-
 You just need `forc` and `fuel-core` installed to repro.
 
 First, install dependencies:
@@ -74,7 +45,7 @@ First, install dependencies:
 yarn
 ```
 
-In a separate terminal, run this to start a local Fuel node that the test contract will be deployed to:
+In a separate terminal, run this to start a local Fuel node that the test contract will be deployed to (requires fuel-core in your PATH):
 ```
 yarn local-node
 ```
@@ -111,3 +82,39 @@ Element 2: <BN: 0xcdefe2fc9e9bd6bd>
 ```
 
 As you can see, `vec_as_only_param` has the expected return values, but `u32_and_vec_params` has some bogus elements
+
+### Versions I'm using
+
+I'm running with a fresh `fuelup update`, giving these versions:
+
+```
+$ fuelup show
+Default host: aarch64-apple-darwin
+fuelup home: /Users/trevor/.fuelup
+
+installed toolchains
+--------------------
+latest-aarch64-apple-darwin (default)
+hyperlane
+
+active toolchain
+-----------------
+latest-aarch64-apple-darwin (default)
+  forc : 0.35.5
+    - forc-client
+      - forc-deploy : 0.35.5
+      - forc-run : 0.35.5
+    - forc-doc : 0.35.5
+    - forc-explore : 0.28.1
+    - forc-fmt : 0.35.5
+    - forc-index : 0.6.1
+    - forc-lsp : 0.35.5
+    - forc-wallet : 0.2.1
+  fuel-core : 0.17.3
+  fuel-indexer : 0.6.1
+```
+And node 16:
+```
+$ node --version
+v16.19.1
+```
