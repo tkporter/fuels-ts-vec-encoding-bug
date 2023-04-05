@@ -13,7 +13,7 @@
   "scripts": {
     "generate-types": "yarn exec -- fuels typegen -i ./contract/out/debug/contract-abi.json -o ./types",
     "local-node": "fuel-core run --chain local_testnet --db-type in-memory --dev-keys",
-    "test": "ts-node ./src/test.ts",
+    "test": "yarn exec -- ts-node ./src/test.ts",
     "build": "cd ./contract && forc build && cd .. && yarn generate-types"
   }
 }
